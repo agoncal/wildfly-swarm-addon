@@ -11,7 +11,6 @@
 		<maven.compiler.target>1.7</maven.compiler.target>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<version.forge>2.16.1.Final</version.forge>
-		<version.furnace>2.16.1.Final</version.furnace>
 	</properties>
 	<dependencyManagement>
 		<dependencies>
@@ -48,17 +47,6 @@
 		</dependency>
 		<dependency>
 			<groupId>org.jboss.forge.addon</groupId>
-			<artifactId>ui-test-harness</artifactId>
-			<classifier>forge-addon</classifier>
-		</dependency>
-		<dependency>
-			<groupId>org.jboss.forge.addon</groupId>
-			<artifactId>shell-test-harness</artifactId>
-			<classifier>forge-addon</classifier>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.jboss.forge.addon</groupId>
 			<artifactId>projects</artifactId>
 			<classifier>forge-addon</classifier>
 		</dependency>
@@ -66,6 +54,18 @@
 			<groupId>org.jboss.forge.addon</groupId>
 			<artifactId>maven</artifactId>
 			<classifier>forge-addon</classifier>
+		</dependency>
+		<dependency>
+			<groupId>org.jboss.forge.addon</groupId>
+			<artifactId>ui-test-harness</artifactId>
+			<classifier>forge-addon</classifier>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.jboss.forge.addon</groupId>
+			<artifactId>shell-test-harness</artifactId>
+			<classifier>forge-addon</classifier>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 	<build>
@@ -88,31 +88,4 @@
 			</plugin>
 		</plugins>
 	</build>
-	<profiles>
-		<profile>
-			<id>release</id>
-			<activation />
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.jboss.forge.furnace</groupId>
-						<artifactId>furnace-maven-plugin</artifactId>
-						<version>${version.furnace}</version>
-						<executions>
-							<execution>
-								<id>generate-dot</id>
-								<phase>prepare-package</phase>
-								<goals>
-									<goal>generate-dot</goal>
-								</goals>
-								<configuration>
-									<attach>true</attach>
-								</configuration>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-	</profiles>
 </project>
